@@ -1,4 +1,4 @@
-import java.io.{BufferedOutputStream, FileOutputStream, OutputStream}
+import java.io.{BufferedOutputStream, File, FileOutputStream, OutputStream}
 
 import org.apache.spark.mllib.fpm.FPGrowth
 import org.apache.spark.rdd.RDD
@@ -12,6 +12,11 @@ object FindSubredditsItemSet {
     val outputFile = args(1)
     val minSupport = args(2).toDouble
     val minSetSize = args(3).toInt
+
+    if (new File(outputFile).exists()){
+      println(s"\n\n\n\n\n\nOutput file exists: $outputFile\n\n\n\n\n")
+      System.out.print(1)
+    }
 
     val outputStream = outputStreamFromFile(outputFile)
     val write = writeToStream(outputStream)(_)
