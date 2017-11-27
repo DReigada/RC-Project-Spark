@@ -1,3 +1,5 @@
+package rc
+
 import java.io.{BufferedOutputStream, File, FileOutputStream, OutputStream}
 
 import org.apache.spark.mllib.fpm.FPGrowth
