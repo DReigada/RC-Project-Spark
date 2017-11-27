@@ -17,23 +17,8 @@ object ReplaceNames extends App {
 
 
   val lines = Source.fromFile(file).getLines().toStream
-  val mapLines = Source.fromFile(mapFile).getLines().toStream
 
-
-  val namesMap = mapLines.foldLeft(Map.empty[Int, String]) {
-    case (map, line) =>
-      val bla = line.split(",")
-
-      val id = bla(0).toInt
-
-      if (bla.length > 1) {
-        map + (id -> bla(1))
-      } else if (id == 1822) {
-        map + (id -> "null")
-      } else {
-        map
-      }
-  }
+  val namesMap = new SubsNamesMap(mapFile).namesMap
 
 
   val t = lines
