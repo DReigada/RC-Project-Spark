@@ -12,8 +12,9 @@ object FindSubredditsItemSet {
     val outputFile = args(1)
     val minSupport = args(2).toDouble
     val minSetSize = args(3).toInt
+    val partitionsNumber = args(4).toInt
 
-    if (new File(outputFile).exists()){
+    if (new File(outputFile).exists()) {
       println(s"\n\n\n\n\n\nOutput file exists: $outputFile\n\n\n\n\n")
       System.out.print(1)
     }
@@ -24,7 +25,7 @@ object FindSubredditsItemSet {
     val conf = new SparkConf().setAppName("FindSubredditsItemSet")
     val sc = new SparkContext(conf)
 
-    val data = sc.textFile(inputFile)
+    val data = sc.textFile(inputFile, partitionsNumber)
 
     val transactions: RDD[Array[String]] = data.map { line =>
       line
@@ -36,12 +37,13 @@ object FindSubredditsItemSet {
 
     val fpg = new FPGrowth()
       .setMinSupport(minSupport)
-      .setNumPartitions(10)
+      .setNumPartitions(partitionsNumber)
     val model = fpg.run(transactions)
 
     model.freqItemsets
       .filter(_.items.length >= minSetSize)
-      .toLocalIterator
+      //      .toLocalIterator
+      .collect
       .foreach { itemset =>
         write(itemset.items.mkString("[", ",", "]") + ", " + itemset.freq + "\n")
       }
