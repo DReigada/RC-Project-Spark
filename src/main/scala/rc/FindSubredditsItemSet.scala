@@ -60,7 +60,7 @@ object FindSubredditsItemSet {
     new BufferedOutputStream(new FileOutputStream(file))
   }
 
-  def writeToStream(output: OutputStream)(line: String) = {
+  def writeToStream(output: OutputStream)(line: String): Unit = {
     output.write(line.getBytes())
   }
 }
