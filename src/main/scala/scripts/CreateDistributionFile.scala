@@ -7,8 +7,8 @@ object CreateDistributionFile extends App {
 
   val regex = """\[(.*)\], (.*)""".r
 
-  val inputFile = "/Users/dreigada/IST/RC/proj/part2/testspark/sparkOut/0.001.out"
-  val outputFile = "/Users/dreigada/IST/RC/proj/part2/testspark/sparkOut/distribution/0.001.count.dist.out"
+  val inputFile = args(0)
+  val outputFile = args(1)
 
   val output = ReplaceNames.outputStreamFromFile(outputFile)
 

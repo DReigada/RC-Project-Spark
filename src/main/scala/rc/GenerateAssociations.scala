@@ -32,7 +32,7 @@ object GenerateAssociations extends App {
 
   val data = sc.textFile(inputFile, partitionsNumber)
 
-  val t = data
+  val model = data
     .map {
       case regex(idsStr, freq) =>
         val ids = idsStr.split(",").map(_.toInt)
@@ -41,7 +41,7 @@ object GenerateAssociations extends App {
     }
 
 
-  new FPGrowthModel(t).generateAssociationRules(confidence)
+  new FPGrowthModel(model).generateAssociationRules(confidence)
     .collect
     .foreach { rule =>
       val antecedentStr = rule.antecedent.mkString("[", ",", "]")

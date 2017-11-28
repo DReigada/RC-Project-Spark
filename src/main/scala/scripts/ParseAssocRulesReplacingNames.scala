@@ -1,21 +1,18 @@
 package scripts
 
-
 import rc.FindSubredditsItemSet.{outputStreamFromFile, writeToStream}
 
 import scala.io.Source
 
-object ParseAssocRules extends App {
+object ParseAssocRulesReplacingNames extends App {
 
-  val input = "0.6.out"
-
-
-  val inputFile = s"/Users/dreigada/IST/RC/proj/part2/testspark/sparkOut/assoc/0.001.out/$input"
-  val outputFile = s"/Users/dreigada/IST/RC/proj/part2/testspark/sparkOut/assoc/0.001.out/withNames/$input"
+  val inputFile = args(0)
+  val mapFile = args(1)
+  val outputFile = args(2)
 
   val regex = """\[(.*)\] => \[(.*)\], (.*)""".r
 
-  val names = new SubsNamesMap()
+  val names = new SubsNamesMap(mapFile)
 
   val outputStream = outputStreamFromFile(outputFile)
   val write = writeToStream(outputStream)(_)

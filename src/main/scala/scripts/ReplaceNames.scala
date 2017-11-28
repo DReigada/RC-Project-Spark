@@ -6,9 +6,9 @@ import scala.io.Source
 
 object ReplaceNames extends App {
 
-  val file = "/Users/dreigada/IST/RC/proj/part2/testspark/sparkOut/0.01.out"
-  val mapFile = "/Users/dreigada/IST/RC/proj/part2/testspark/grep0.01.out"
-  val outFile = "/Users/dreigada/IST/RC/proj/part2/testspark/sparkOut/withNames/0.01WithNames.out"
+  val file = args(0)
+  val mapFile = args(1)
+  val outFile =  args(2)
 
   val regex = """\[(.*)\], (.*)""".r
 

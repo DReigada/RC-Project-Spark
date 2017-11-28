@@ -3,7 +3,7 @@ package scripts
 
 import scala.io.Source
 
-class SubsNamesMap(inputFile: String = "/Users/dreigada/Desktop/RC/fullReddit/subsWithIdForReal.csv") {
+class SubsNamesMap(inputFile: String) {
 
   private val mapLines = Source.fromFile(inputFile).getLines().toStream
 
