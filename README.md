@@ -4,11 +4,11 @@ This repository contains scripts to analyse the network of Users-Subreddits of [
 
 ## Scripts
 
-- `FindSubredditsItemSet` 
+- [`FindSubredditsItemSet`](https://github.com/DReigada/RC-Project-Spark/blob/master/src/main/scala/rc/FindSubredditsItemSet.scala) 
     * Finds frequent itemsets in a file whose lines contain the items of each bucket (in our case: Users = buckets and Subreddits = items)
     * Arguments: `<inputFile> <outputFile> <minSupport> <minSetSize> <partitionsNumber>`
 
-- `GenerateAssociations`
+- [`GenerateAssociations`](https://github.com/DReigada/RC-Project-Spark/blob/master/src/main/scala/rc/GenerateAssociations.scala)
     * Generates associations rules based on the found frequent itemsets
     * Arguments: `<inputFile> <outputFile> <minConfidence> <partitionsNumber>`
     
