@@ -23,3 +23,7 @@ This repository contains scripts to analyse the network of Users-Subreddits of [
 1. Generate the jar with `sbt package` (it should be created in `target/scala-2.11/rc-project-spark_2.11-0.1.0-SNAPSHOT.jar`)
 2. Set the environment variable `SPARK_HOME` to your spark distribution directory
 3. Run the desired script in `bin/`, using the path to the jar as the first argument followed by the arguments for the script
+
+## Extras
+
+The directory [`sparkOut/`](https://github.com/DReigada/RC-Project-Spark/tree/master/sparkOut) contains the data we generated from our dataset.
