@@ -13,7 +13,7 @@ This repository contains scripts to analyse the network of Users-Subreddits of [
     * Arguments: `<inputFile> <outputFile> <minConfidence> <partitionsNumber>`
     
 ## Requirements
-- JDK
+- Java 8 JDK
 - scala (https://www.scala-lang.org/)
 - sbt (http://www.scala-sbt.org/)
 - spark distribution (https://spark.apache.org/downloads.html)
